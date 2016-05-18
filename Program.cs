@@ -11,12 +11,8 @@ namespace P8
         static void Main(string[] args)
         {
             ulong number = ulong.Parse(Console.ReadLine()) - 1;
-            if (number == 49)
-            {
-                Console.WriteLine("7778742049");
-                return;
-            }
 
+            Console.WriteLine(GetFibonacci(number));
         }
         public static ulong GetFibonacci(ulong n)
         {
