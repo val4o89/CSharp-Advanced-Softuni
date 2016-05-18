@@ -8,19 +8,26 @@ namespace P8
 {
     class Program
     {
+        static ulong[] numbers;
+
         static void Main(string[] args)
         {
-            ulong number = ulong.Parse(Console.ReadLine()) - 1;
+            ulong number = ulong.Parse(Console.ReadLine());
 
-            Console.WriteLine(GetFibonacci(number));
+            numbers = new ulong[number + 2];
+            numbers[1] = 1;
+            numbers[2] = 1;
+            ulong result = GetFibonacci(number);
+
+            Console.WriteLine(result);
         }
         public static ulong GetFibonacci(ulong n)
         {
-            if (n <= 1)
+            if (numbers[n] == 0)
             {
-                return 1;
+                numbers[n] = GetFibonacci(n - 1) + GetFibonacci(n - 2);
             }
-            return GetFibonacci(n - 1) + GetFibonacci(n - 2);
+            return numbers[n];
         }
     }
 }
